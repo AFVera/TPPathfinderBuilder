@@ -20,4 +20,10 @@ public class PersonajeService {
     public List<PersonajeDTO> getAllPersonajes() {
         return personajeRepository.findAll().stream().map(PersonajeMapper::toDTO).toList();
     }
+
+    public PersonajeDTO savePersonaje(PersonajeDTO personajeDTO) {
+        return PersonajeMapper.toDTO(personajeRepository.save(PersonajeMapper.toEntity(personajeDTO)));
+    }
+    
+
 }
