@@ -7,12 +7,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.FetchType;
+
+import java.util.List;
 import java.util.Random;
 
 @Entity
@@ -33,9 +36,9 @@ public class Personaje {
     private int heridas;
     private int ataque;
     private int defensa;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_equipo")
-    private Equipo[] equipo;
+    private List<Equipo> equipo;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_raza")
     private Raza raza;
