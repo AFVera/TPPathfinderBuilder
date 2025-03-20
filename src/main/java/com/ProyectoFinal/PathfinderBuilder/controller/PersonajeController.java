@@ -14,10 +14,12 @@ public class PersonajeController {
 
     @Autowired
     private PersonajeService personajeService;
-
-    @GetMapping("/all")
+    
+    @GetMapping()
     public ResponseEntity<?> getAllPersonajes() {
         return  ResponseEntity.ok(personajeService.getAllPersonajes());
     }
+
+
 
 }

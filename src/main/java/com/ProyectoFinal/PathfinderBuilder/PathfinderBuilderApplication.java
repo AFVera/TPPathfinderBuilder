@@ -24,7 +24,7 @@ public class PathfinderBuilderApplication implements CommandLineRunner {
 		//creo un personaje
 		Personaje personaje1 = Personaje.builder()
 				.dueñoDelPersonaje("Javier")
-				.nombre("Beto")
+				.nombre("Caza-Dor")
 				.profesion("Cazador")
 				.hpTotal(5)
 				.heridas(0)
@@ -34,7 +34,7 @@ public class PathfinderBuilderApplication implements CommandLineRunner {
 
 		Personaje personaje2 = Personaje.builder()
 				.dueñoDelPersonaje("Javier")
-				.nombre("Bato")
+				.nombre("Warrior")
 				.profesion("Guerrero")
 				.hpTotal(5)
 				.heridas(0)
