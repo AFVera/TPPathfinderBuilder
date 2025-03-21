@@ -6,8 +6,7 @@ import lombok.Data;
 //DTO de la clase Personaje
 @Data
 @Builder
-public class PersonajeDTO {
-    private Long id;
+public class PersonajeRequest  {
     private String dueñoDelPersonaje;
     private String nombre;
     private String profesion;

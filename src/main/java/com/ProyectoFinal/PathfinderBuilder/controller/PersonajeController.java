@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ProyectoFinal.PathfinderBuilder.service.PersonajeDTO;
+import com.ProyectoFinal.PathfinderBuilder.service.PersonajeRequest;
 import com.ProyectoFinal.PathfinderBuilder.service.PersonajeService;
 
 
@@ -30,13 +30,13 @@ public class PersonajeController {
 
     // creo un personaje y lo guardo en la base de datos
     @PostMapping()
-    public ResponseEntity<?> savePersonaje(@RequestBody PersonajeDTO personajeDTO) {
-        return  ResponseEntity.ok(personajeService.savePersonaje(personajeDTO));
+    public ResponseEntity<?> savePersonaje(@RequestBody PersonajeRequest personaje) {
+        return  ResponseEntity.ok(personajeService.savePersonaje(personaje));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updatePersonaje(@PathParam("id") Long id, @RequestBody PersonajeDTO personajeDTO) {
-        return  ResponseEntity.ok(personajeService.actualizarPersonaje(id, personajeDTO));
+    public ResponseEntity<?> updatePersonaje(@PathParam("id") Long id, @RequestBody PersonajeRequest personaje) {
+        return  ResponseEntity.ok(personajeService.actualizarPersonaje(id, personaje));
     }
 
 }
