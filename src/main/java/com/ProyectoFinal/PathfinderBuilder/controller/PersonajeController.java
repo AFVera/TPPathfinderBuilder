@@ -23,12 +23,11 @@ public class PersonajeController {
 
     @Autowired
     private PersonajeService personajeService;
-
+    // obtengo todos los personajes
     @GetMapping()
     public ResponseEntity<?> getAllPersonajes() {
         return  ResponseEntity.ok(personajeService.getAllPersonajes());
     }
-
     // creo un personaje y lo guardo en la base de datos
     @PostMapping()
     public ResponseEntity<?> savePersonaje(@RequestBody PersonajeRequest personaje) {
@@ -44,5 +43,11 @@ public class PersonajeController {
     public ResponseEntity<?> deletePersonaje(@PathParam("id") Long id) {
         return  ResponseEntity.ok(personajeService.borrarPersonaje(id));
     }
+    //hacer pelear a 2 personajes a muerte
+    @PutMapping("/pelear/{id1}/{id2}")
+    public ResponseEntity<?> pelearPersonajes(@PathParam("id1") Long id1, @PathParam("id2") Long id2) {
+        return ResponseEntity.ok(personajeService.pelearPersonajes(id1, id2));
+    }
+
 
 }

@@ -14,6 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.FetchType;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -42,27 +43,30 @@ public class Personaje {
 
 //metodos
 
-    public void atacarA(Personaje personaje) {
+    public String atacarA(Personaje personaje) {
         Random rand = new Random();
         if (this.getAtaque()+(rand.nextInt(20)+1) > personaje.getDefensa()) {
-            System.out.println("El personaje " + this.getNombre() + " ha golpeado a " + personaje.getNombre());
             personaje.setHeridas(personaje.getHeridas() + 1);
+            return "El personaje " + this.getNombre() + " ha golpeado a " + personaje.getNombre();
+            
             } else {
-                System.out.println("El personaje " + this.getNombre() + " ha fallado su ataque");
+            return  "El personaje " + this.getNombre() + " ha fallado su ataque";
             }
         }
 //pelear a muerte con un personaje --> se ataca varias veces a un personaje hasta que las heridas del personaje o las mismas superen sus puntos de vida
 
-    public void pelearA(Personaje personaje) {
+    public ArrayList<String> pelearA(Personaje personaje) {
+        ArrayList<String> logPelea = new ArrayList<>();
         while (personaje.getHeridas() <= personaje.getHpTotal() && this.getHeridas() <= this.getHpTotal()) {
-            this.atacarA(personaje);
-            personaje.atacarA(this);
+           logPelea.add(this.atacarA(personaje));
+           logPelea.add(personaje.atacarA(this));
         }
         if (personaje.getHeridas() >= personaje.getHpTotal()) {
-            System.out.println("El personaje " + personaje.getNombre() + " ha muerto");
+            logPelea.add("El personaje " + personaje.getNombre() + " ha muerto");;
         } else {
-            System.out.println("El personaje " + this.getNombre() + " ha muerto");
+            logPelea.add("El personaje " + this.getNombre() + " ha muerto");
         }
+        return logPelea;
     }
 
 }

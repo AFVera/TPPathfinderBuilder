@@ -1,5 +1,6 @@
 package com.ProyectoFinal.PathfinderBuilder.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +37,17 @@ public class PersonajeService {
         personaje.setDefensa(personaje2.getDefensa());
         return PersonajeMapper.toDTO(personajeRepository.save(personaje));
     }
-
-    public Object borrarPersonaje(Long id) {
+    // metodo para borrar un personaje
+    public String borrarPersonaje(Long id) {
         personajeRepository.deleteById(id);
         return "Personaje borrado";
+    }
+    // metodo que trae 2 personajes y lo hacen pelear entre ellos
+    public ArrayList<String> pelearPersonajes(Long id1, Long id2) {
+        Personaje p1 = personajeRepository.findById(id1).orElse(null);
+        Personaje p2 = personajeRepository.findById(id2).orElse(null);
+        return p1.pelearA(p2);
+        
     }
       
 }

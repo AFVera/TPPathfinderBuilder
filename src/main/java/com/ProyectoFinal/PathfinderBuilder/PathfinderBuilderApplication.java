@@ -44,7 +44,8 @@ public class PathfinderBuilderApplication implements CommandLineRunner {
 		personajeService.save(personaje1);
 		personajeService.save(personaje2);
 
-		personaje1.pelearA(personaje2);
+		String logPelea = personaje1.atacarA(personaje2);
+		System.out.println(logPelea);
 	}
 
 	
