@@ -5,7 +5,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.ProyectoFinal.PathfinderBuilder.model.Arma;
 import com.ProyectoFinal.PathfinderBuilder.model.Personaje;
 import com.ProyectoFinal.PathfinderBuilder.service.PersonajeService;
 
@@ -41,12 +40,6 @@ public class PathfinderBuilderApplication implements CommandLineRunner {
 				.ataque(0)
 				.defensa(10)
 				.build();
-
-
-
-		Arma espada = new Arma("Espada", "Una espada", "Cortante", 0, 5,1);
-		Arma mazo = new Arma("Mazo", "Un mazo", "Contundente", 0, 6,1);
-		Arma Lanza = new Arma("Lanza", "Una lanza", "Cortante", 0, 10,2);
 
 		personajeService.save(personaje1);
 		personajeService.save(personaje2);

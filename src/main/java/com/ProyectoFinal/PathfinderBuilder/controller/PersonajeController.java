@@ -3,6 +3,7 @@ package com.ProyectoFinal.PathfinderBuilder.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -33,10 +34,15 @@ public class PersonajeController {
     public ResponseEntity<?> savePersonaje(@RequestBody PersonajeRequest personaje) {
         return  ResponseEntity.ok(personajeService.savePersonaje(personaje));
     }
-
+    // actualizo un personaje segun su id
     @PutMapping("/{id}")
     public ResponseEntity<?> updatePersonaje(@PathParam("id") Long id, @RequestBody PersonajeRequest personaje) {
         return  ResponseEntity.ok(personajeService.actualizarPersonaje(id, personaje));
+    }
+    // borro un personaje segun su id
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletePersonaje(@PathParam("id") Long id) {
+        return  ResponseEntity.ok(personajeService.borrarPersonaje(id));
     }
 
 }
