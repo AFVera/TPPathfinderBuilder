@@ -27,14 +27,14 @@ import java.util.Random;
 public class Personaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String dueñoDelPersonaje;
     private String nombre;
     private String profesion;
-    private int hpTotal;
-    private int heridas;
-    private int ataque;
-    private int defensa;
+    private Integer hpTotal;
+    private Integer heridas;
+    private Integer ataque;
+    private Integer defensa;
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_equipo")
     private List<Equipo> equipo;
