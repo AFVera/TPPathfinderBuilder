@@ -12,19 +12,19 @@ public class PersonajeService {
 
     @Autowired
     private PersonajeRepository personajeRepository;
-
+    // metodo para guardar un personaje en la base de datos
     public Personaje save(Personaje personaje) {
         return personajeRepository.save(personaje);
     }
-
+    // metodo para obtener todos los personajes
     public List<PersonajeResponse> getAllPersonajes() {
         return personajeRepository.findAll().stream().map(PersonajeMapper::toDTO).toList();
     }
-
+    // metodo para crear un personaje
     public PersonajeResponse savePersonaje(PersonajeRequest personaje) {
         return PersonajeMapper.toDTO(personajeRepository.save(PersonajeMapper.toEntity(personaje)));
     }
-
+    // metodo para actualizar un personaje
     public PersonajeResponse actualizarPersonaje(Long id, PersonajeRequest personaje2) {
         Personaje personaje = personajeRepository.findById(id).orElse(null);
         personaje.setDueñoDelPersonaje(personaje2.getDueñoDelPersonaje());
@@ -36,4 +36,10 @@ public class PersonajeService {
         personaje.setDefensa(personaje2.getDefensa());
         return PersonajeMapper.toDTO(personajeRepository.save(personaje));
     }
+
+    public Object borrarPersonaje(Long id) {
+        personajeRepository.deleteById(id);
+        return "Personaje borrado";
+    }
+      
 }
