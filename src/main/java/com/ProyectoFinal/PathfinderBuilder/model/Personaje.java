@@ -57,9 +57,15 @@ public class Personaje {
 
     public ArrayList<String> pelearA(Personaje personaje) {
         ArrayList<String> logPelea = new ArrayList<>();
+        logPelea.add(this.getNombre() + " VS " + personaje.getNombre());
+        logPelea.add(this.getNombre() + ": VIDA: " + this.getHpTotal() + " - ATAQUE: " + this.getAtaque() + " - DEFENSA: " + this.getDefensa());
+        logPelea.add(personaje.getNombre() + ": VIDA: " + personaje.getHpTotal() + " - ATAQUE: " + personaje.getAtaque() + " - DEFENSA: " + personaje.getDefensa());
         while (personaje.getHeridas() <= personaje.getHpTotal() && this.getHeridas() <= this.getHpTotal()) {
            logPelea.add(this.atacarA(personaje));
-           logPelea.add(personaje.atacarA(this));
+           if (personaje.getHeridas() >= personaje.getHpTotal()) {
+               break;
+           } else {logPelea.add(personaje.atacarA(this));
+        }   
         }
         if (personaje.getHeridas() >= personaje.getHpTotal()) {
             logPelea.add("El personaje " + personaje.getNombre() + " ha muerto");;

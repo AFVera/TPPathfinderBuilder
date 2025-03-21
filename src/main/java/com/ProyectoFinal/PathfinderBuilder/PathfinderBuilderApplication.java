@@ -27,25 +27,22 @@ public class PathfinderBuilderApplication implements CommandLineRunner {
 				.profesion("Cazador")
 				.hpTotal(5)
 				.heridas(0)
-				.ataque(0)
-				.defensa(10)
+				.ataque(5)
+				.defensa(12)
 				.build();
 
 		Personaje personaje2 = Personaje.builder()
 				.dueñoDelPersonaje("Javier")
 				.nombre("Warrior")
 				.profesion("Guerrero")
-				.hpTotal(5)
+				.hpTotal(6)
 				.heridas(0)
-				.ataque(0)
-				.defensa(10)
+				.ataque(2)
+				.defensa(14)
 				.build();
 
 		personajeService.save(personaje1);
 		personajeService.save(personaje2);
-
-		String logPelea = personaje1.atacarA(personaje2);
-		System.out.println(logPelea);
 	}
 
 	
