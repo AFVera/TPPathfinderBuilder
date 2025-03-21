@@ -6,13 +6,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ProyectoFinal.PathfinderBuilder.service.PersonajeDTO;
 import com.ProyectoFinal.PathfinderBuilder.service.PersonajeService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 import jakarta.websocket.server.PathParam;
 
 @RestController
@@ -34,8 +35,7 @@ public class PersonajeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updatePersonaje(@RequestBody PersonajeDTO personajeDTO,
-    @PathParam("id") Long id) {
+    public ResponseEntity<?> updatePersonaje(@PathParam("id") Long id, @RequestBody PersonajeDTO personajeDTO) {
         return  ResponseEntity.ok(personajeService.actualizarPersonaje(id, personajeDTO));
     }
 
