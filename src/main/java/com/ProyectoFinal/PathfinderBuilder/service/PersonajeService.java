@@ -17,23 +17,23 @@ public class PersonajeService {
         return personajeRepository.save(personaje);
     }
 
-    public List<PersonajeDTO> getAllPersonajes() {
+    public List<PersonajeResponse> getAllPersonajes() {
         return personajeRepository.findAll().stream().map(PersonajeMapper::toDTO).toList();
     }
 
-    public PersonajeDTO savePersonaje(PersonajeDTO personajeDTO) {
-        return PersonajeMapper.toDTO(personajeRepository.save(PersonajeMapper.toEntity(personajeDTO)));
+    public PersonajeResponse savePersonaje(PersonajeRequest personaje) {
+        return PersonajeMapper.toDTO(personajeRepository.save(PersonajeMapper.toEntity(personaje)));
     }
 
-    public PersonajeDTO actualizarPersonaje(Long id, PersonajeDTO personajeDTO) {
+    public PersonajeResponse actualizarPersonaje(Long id, PersonajeRequest personaje2) {
         Personaje personaje = personajeRepository.findById(id).orElse(null);
-        personaje.setDueñoDelPersonaje(personajeDTO.getDueñoDelPersonaje());
-        personaje.setNombre(personajeDTO.getNombre());
-        personaje.setProfesion(personajeDTO.getProfesion());
-        personaje.setHpTotal(personajeDTO.getHpTotal());
-        personaje.setHeridas(personajeDTO.getHeridas());
-        personaje.setAtaque(personajeDTO.getAtaque());
-        personaje.setDefensa(personajeDTO.getDefensa());
+        personaje.setDueñoDelPersonaje(personaje2.getDueñoDelPersonaje());
+        personaje.setNombre(personaje2.getNombre());
+        personaje.setProfesion(personaje2.getProfesion());
+        personaje.setHpTotal(personaje2.getHpTotal());
+        personaje.setHeridas(personaje2.getHeridas());
+        personaje.setAtaque(personaje2.getAtaque());
+        personaje.setDefensa(personaje2.getDefensa());
         return PersonajeMapper.toDTO(personajeRepository.save(personaje));
     }
 }
