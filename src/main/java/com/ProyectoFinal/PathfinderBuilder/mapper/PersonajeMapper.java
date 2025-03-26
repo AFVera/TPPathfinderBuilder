@@ -1,7 +1,9 @@
-package com.ProyectoFinal.PathfinderBuilder.service;
+package com.ProyectoFinal.PathfinderBuilder.mapper;
 
 import org.springframework.stereotype.Component;
 
+import com.ProyectoFinal.PathfinderBuilder.dto.PersonajeRequest;
+import com.ProyectoFinal.PathfinderBuilder.dto.PersonajeResponse;
 import com.ProyectoFinal.PathfinderBuilder.model.Personaje;
 
 //Map de Personaje
