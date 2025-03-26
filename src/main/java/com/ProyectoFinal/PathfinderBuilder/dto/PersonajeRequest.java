@@ -1,4 +1,4 @@
-package com.ProyectoFinal.PathfinderBuilder.service;
+package com.ProyectoFinal.PathfinderBuilder.dto;
 
 import lombok.Builder;
 import lombok.Data;

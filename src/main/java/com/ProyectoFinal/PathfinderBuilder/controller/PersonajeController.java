@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ProyectoFinal.PathfinderBuilder.service.PersonajeRequest;
+import com.ProyectoFinal.PathfinderBuilder.dto.PersonajeRequest;
 import com.ProyectoFinal.PathfinderBuilder.service.PersonajeService;
 
 

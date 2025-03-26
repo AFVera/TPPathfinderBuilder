@@ -6,6 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ProyectoFinal.PathfinderBuilder.dto.PersonajeRequest;
+import com.ProyectoFinal.PathfinderBuilder.dto.PersonajeResponse;
+import com.ProyectoFinal.PathfinderBuilder.mapper.PersonajeMapper;
 import com.ProyectoFinal.PathfinderBuilder.model.Personaje;
 import com.ProyectoFinal.PathfinderBuilder.repository.PersonajeRepository;
 @Service
